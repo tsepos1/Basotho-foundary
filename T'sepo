@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basotho Foundry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, label {
+            color: #333;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .dashboard {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .dashboard div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <h1>Welcome to Basotho Foundry</h1>
+        <button class="button" onclick="showSignUp()">Sign Up</button>
+        <button class="button" onclick="showLogIn()">Log In</button>
+    </div>
+
+    <!-- Sign Up Screen -->
+    <div id="sign-up-screen" style="display: none;">
+        <h2>Sign Up</h2>
+        <div class="input-group">
+            <label for="sign-up-phone">Phone Number</label>
+            <input type="text" id="sign-up-phone">
+        </div>
+        <div class="input-group">
+            <label for="sign-up-password">Password</label>
+            <input type="password" id="sign-up-password">
+        </div>
+        <button class="button" onclick="signUp()">Sign Up</button>
+    </div>
+
+    <!-- Log In Screen -->
+    <div id="log-in-screen" style="display: none;">
+        <h2>Log In</h2>
+        <div class="input-group">
+            <label for="log-in-phone">Phone Number</label>
+            <input type="text" id="log-in-phone">
+        </div>
+        <div class="input-group">
+            <label for="log-in-password">Password</label>
+            <input type="password" id="log-in-password">
+        </div>
+        <button class="button" onclick="logIn()">Log In</button>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" style="display: none;">
+        <h2>Dashboard</h2>
+        <div class="dashboard">
+            <div>Welcome, User!</div>
+            <div>Deposited Amount: M<span id="deposited-amount">0</span></div>
+            <div>Accumulated Amount: M<span id="accumulated-amount">0</span></div>
+            <div>Investment Growth: <span id="investment-growth">0</span>%</div>
+            <button class="button" onclick="withdraw()">Withdraw</button>
+        </div>
+    </div>
+
+    <!-- Investment Options Screen -->
+    <div id="investment-options-screen" style="display: none;">
+        <h2>Investment Options</h2>
+        <div class="input-group">
+            <label for="investment-amount">Amount to Invest</label>
+            <input type="number" id="investment-amount" min="100" max="2500">
+        </div>
+        <div class="input-group">
+            <label for="investment-duration">Duration</label>
+            <select id="investment-duration">
+                <option value="15">15 days (40% ROI)</option>
+                <option value="30">30 days (90% ROI)</option>
+            </select>
+        </div>
+        <button class="button" onclick="confirmInvestment()">Confirm Investment</button>
+    </div>
+
+    <!-- Withdrawal Screen -->
+    <div id="withdrawal-screen" style="display: none;">
+        <h2>Withdraw</h2>
+        <div>Withdrawable Amount: M<span id="withdrawable-amount">0</span></div>
+        <div>Withdrawal Fee: M<span id="withdrawal-fee">0</span></div>
+        <div>Total Amount: M<span id="total-amount">0</span></div>
+        <button class="button" onclick="confirmWithdrawal()">Confirm Withdrawal</button>
+    </div>
+</div>
+
+<script>
+    function showSignUp() {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById('sign-up-screen').style.display = 'block';
+    }
+
+    function showLogIn() {
+        document.getElementById('welcome-screen').style.display = 'none';
+        document.getElementById('log-in-screen').style.display = 'block';
+    }
+
+    function signUp() {
+        // Mock sign-up process
+        alert('Sign Up Successful!');
+        showDashboard();
+    }
+
+    function logIn() {
+        // Mock log-in process
+        alert('Log In Successful!');
+        showDashboard();
+    }
+
+    function showDashboard() {
+        document.getElementById('sign-up-screen').style.display = 'none';
+        document.getElementById('log-in-screen').style.display = 'none';
+        document.getElementById('dashboard-screen').style.display = 'block';
+    }
+
+    function withdraw() {
+        // Mock withdrawal process
+        alert('Withdrawal Process Initiated');
+        document.getElementById('withdrawal-screen').style.display = 'block';
+    }
+
+    function confirmInvestment() {
+        // Mock investment confirmation
+        alert('Investment Confirmed!');
+        showDashboard();
+    }
+
+    function confirmWithdrawal() {
+        // Mock withdrawal confirmation
+        alert('Withdrawal Confirmed!');
+        showDashboard();
+    }
+</script>
+
+</body>
+</html>
